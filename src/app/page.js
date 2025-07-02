@@ -1,16 +1,17 @@
+import AdPopup from "../../components/AdPopup";
 import CarsPageBanner from "../../components/CarsPageBanner";
 import FavoriteBrands from "../../components/FavoriteBrands";
-import Footer from "../../components/Footer";
-import HomeBanner from "../../components/HomeBanner";
-import Navbar from "../../components/Navbar";
+import MarqueeHomePage from "../../components/MarqueeHomePage";
+import SpecialEdition from "../../components/SpecialEdition";
 
 export default function Home() {
   return (
     <div className="">
-      <Navbar></Navbar>
+      <AdPopup></AdPopup>
       <CarsPageBanner></CarsPageBanner>
       <FavoriteBrands></FavoriteBrands>
-      <Footer></Footer>
+      <SpecialEdition></SpecialEdition>
+      <MarqueeHomePage></MarqueeHomePage>
     </div>
   );
 }

@@ -37,11 +37,11 @@ export default function RegisterForm() {
             form.reset()
         }
     }
-     // after registration login user automatically
+    // after registration login user automatically
 
     return (
         <main className="w-full h-screen flex flex-col items-center justify-center px-4 my-10">
-            <div className="max-w-sm w-full text-gray-600 space-y-5">
+            <div className="max-w-sm w-full text-gray-600 space-y-5 relative">
                 <div className="text-center pb-8 flex flex-col items-center justify-center">
                     <Image
                         src="/logo.jpg"
@@ -56,6 +56,12 @@ export default function RegisterForm() {
                         </h3>
                     </div>
                 </div>
+                <button
+                    onClick={() => router.back()}
+                    className="absolute -right-96 w-[150px] md:block hidden top-10 px-2 text-gray-700 font-medium border-2 hover:bg-gray-100 rounded-lg transition border-sky-300"
+                >
+                    ← Go Back
+                </button>
                 <form onSubmit={handleRegister} className="space-y-5">
                     <div>
                         <label className="font-medium">Name</label>

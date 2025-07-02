@@ -39,21 +39,67 @@ export const authOptions = {
         signIn: '/login',
     },
     //for getting the response after a user login/signup successfully
+    // callbacks: {
+    //     async signIn({ user, account, profile, email, credentials }) {
+    //         // console.log({ user, account, profile, email, credentials })
+    //         if (account) {
+    //             const { providerAccountId, provider } = account
+    //             const { email, image, name } = user   //user_email ===> email
+    //             const userCollection = await dbConnect(collectionNameObj.userCollection)
+    //             const isExisted = await userCollection.findOne({ providerAccountId })
+    //             if (!isExisted) {
+    //                 const payload = { providerAccountId, provider, email, image, name }
+    //                 await userCollection.insertOne(payload)
+    //             }
+    //         }
+
+    //         return true
+    //     },
+    // }
     callbacks: {
-        async signIn({ user, account, profile, email, credentials }) {
-            // console.log({ user, account, profile, email, credentials })
-            if (account) {
-                const { providerAccountId, provider } = account
-                const { email, image, name } = user   //user_email ===> email
-                const userCollection = await dbConnect(collectionNameObj.userCollection)
-                const isExisted = await userCollection.findOne({ providerAccountId })
-                if (!isExisted) {
-                    const payload = { providerAccountId, provider, email, image, name }
-                    await userCollection.insertOne(payload)
-                }
+        async signIn({ user, account, profile, credentials }) {
+            const { providerAccountId, provider } = account ?? {};
+            const { email, image, name } = user;
+
+            const userCollection = await dbConnect(collectionNameObj.userCollection);
+            const isExisted = await userCollection.findOne({ providerAccountId });
+
+            if (!isExisted && account) {
+                const payload = { providerAccountId, provider, email, image, name };
+                await userCollection.insertOne(payload);
             }
 
-            return true
+            return true;
         },
+
+        async session({ session, token }) {
+            const userCollection = await dbConnect(collectionNameObj.userCollection);
+
+            const user = await userCollection.findOne({
+                email: session.user.email
+            });
+
+            if (user) {
+                session.user.id = user._id.toString();
+                session.user.name = user.name;
+                session.user.email = user.email;
+                session.user.image = user.image;
+            }
+
+            return session;
+        },
+
+        // Uncomment if using JWT strategy (optional)
+        // async jwt({ token, user }) {
+        //     if (user) {
+        //         token.id = user.id;
+        //         token.email = user.email;
+        //         token.name = user.name;
+        //         token.image = user.image;
+        //     }
+        //     return token;
+        // }
     }
+
+
 }

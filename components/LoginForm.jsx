@@ -6,6 +6,7 @@ import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 import { signIn } from "next-auth/react"
+import GoogleLogin from './GoogleLogin';
 
 export default function LoginForm() {
     const [passwordView, setPasswordView] = useState(false)
@@ -27,6 +28,7 @@ export default function LoginForm() {
             if (response.ok) {
                 toast.success("Login Successfull")
                 router.push("/")
+                toast.loading('Redirecting...')
                 form.reset()
             }
             else {
@@ -39,8 +41,8 @@ export default function LoginForm() {
         }
     }
     return (
-        <div className="max-w-sm w-full text-gray-600 space-y-5">
-            <div className="text-center pb-8 flex flex-col items-center justify-center">
+        <div className="max-w-sm w-full text-gray-600 space-y-5 relative">
+            <div className="text-center flex flex-col items-center justify-center">
                 <Image
                     src='/logo.jpg'
                     width={150}
@@ -54,6 +56,14 @@ export default function LoginForm() {
                     </h3>
                 </div>
             </div>
+            <button
+                onClick={() => router.back()}
+                className="absolute -right-96 w-[150px] md:block hidden top-0 px-2 text-gray-700 font-medium border border-2 hover:bg-gray-100 rounded-lg transition border-sky-300"
+            >
+                ← Go Back
+            </button>
+
+            {/* email password login */}
             <form onSubmit={handleLogin} className="space-y-5">
                 <div>
                     <label className="font-medium">Email</label>
@@ -97,16 +107,12 @@ export default function LoginForm() {
                     Sign in
                 </button>
             </form>
-            <button
-                className="w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium hover:bg-gray-50 duration-150 active:bg-gray-100"
-            >
-                <img
-                    src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg"
-                    alt="Google"
-                    className="w-5 h-5"
-                />
-                Continue with Google
-            </button>
+
+            {/* google login component */}
+            <GoogleLogin></GoogleLogin>
+
+
+            {/* below section */}
             <p className="text-center">
                 Don&apos;t have an account?{' '}
                 <Link

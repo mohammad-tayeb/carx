@@ -1,4 +1,85 @@
 @import "tailwindcss";
+
 @plugin "daisyui" {
     themes: light --default;
 }
+
+@keyframes ripple {
+    0% {
+        opacity: 1;
+        transform: scale3d(0.75, 0.75, 1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale3d(1.5, 1.5, 1);
+    }
+}
+
+.request-loader {
+    @apply relative flex justify-center items-center rounded-full btn bg-[#41bce8] border-none w-[150px] text-white shadow-lg;
+}
+
+.request-loader::after,
+.request-loader::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -14px;
+    height: 120%;
+    width: 120%;
+    border: 8px solid #41bce8;
+    border-radius: 9999px;
+    z-index: -1;
+    animation: ripple 3s cubic-bezier(0.65, 0, 0.34, 1) infinite;
+}
+
+.request-loader::before {
+    animation-delay: 0.5s;
+}
+
+/* New: Pause ripple animation on hover */
+.request-loader:hover::after,
+.request-loader:hover::before {
+    animation-play-state: paused;
+    /* Or, to completely hide and reset the animation: */
+    /* opacity: 0 !important; */
+    /* animation: none !important; */
+}
+
+
+@keyframes ripple-button {
+    from {
+        transform: scale(0);
+        opacity: 0.6;
+    }
+
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.ripple-btn::after {
+    content: '';
+    position: absolute;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.6s, opacity 1s;
+}
+
+
+.ripple-btn:active::after {
+    animation: ripple-button 0.6s ease-out;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+
+
