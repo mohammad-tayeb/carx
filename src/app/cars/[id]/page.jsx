@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Navbar from "../../../../components/Navbar";
 import dbConnect, { collectionNameObj } from "@/lib/dbConnect";
 import BuyRent from "../../../../components/BuyRent";
 
@@ -19,7 +18,6 @@ export default async function page({ params }) {
 
     return (
         <>
-            <Navbar />
             <section className="flex mb-20 flex-col md:flex-row items-center justify-between rounded-2xl p-8 md:p-16 shadow-lg relative pb-32">
                 {/* Left Content */}
                 <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
