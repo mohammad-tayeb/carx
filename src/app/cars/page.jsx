@@ -4,6 +4,7 @@ import CarsPageCards from '../../../components/CarsPageCards';
 import getCarsData from './getCarsData';
 import Filter from '../../../components/Filter';
 import Pagination from '../../../components/Pagination';
+import { Suspense } from 'react';
 
 export default async function CarsPage({ searchParams }) {
   // getting filter and pagination information from url
@@ -22,9 +23,13 @@ export default async function CarsPage({ searchParams }) {
     <div>
       <div className="mx-10">
         <HomeBanner />
-        <Filter selectedBrand={brand} />
+        <Suspense fallback={<div>Loading filters...</div>}>
+          <Filter selectedBrand={brand} />
+        </Suspense>
         <div className='my-10'><CarsPageCards cars={cars} /></div>
-        <Pagination currentPage={page} totalPages={totalPages} />
+        <Suspense fallback={<div>Loading filters...</div>}>
+          <Pagination currentPage={page} totalPages={totalPages} />
+        </Suspense>
       </div>
     </div>
   );

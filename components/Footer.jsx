@@ -1,5 +1,6 @@
 "use client"
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaYoutube } from 'react-icons/fa'
@@ -14,7 +15,7 @@ export default function Footer() {
             <div className={`${shouldHideNavbar && 'hidden'} px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:mt-10`}>
                 <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                     <div className="sm:col-span-2">
-                        <a
+                        <Link
                             href="/"
                             aria-label="Go home"
                             title="carx"
@@ -27,13 +28,13 @@ export default function Footer() {
                                 alt="carx Logo"
                                 className="md:max-w-lg max-w-sm"
                             />
-                        </a>
+                        </Link>
                         <div className="mt-6 lg:max-w-sm">
                             <p className="text-sm text-gray-800">
-                                At Carx, we bring you a curated collection of the latest and finest vehicles from top global manufacturers.
+                                At Carx, we bring you Link curated collection of the latest and finest vehicles from top global manufacturers.
                             </p>
                             <p className="mt-4 text-sm text-gray-800">
-                                Whether you're looking for luxury, performance, or reliability — we help you find the car that fits your lifestyle.
+                                Whether you&apos;re looking for luxury, performance, or reliability — we help you find the car that fits your lifestyle.
                             </p>
                         </div>
                     </div>
@@ -43,29 +44,29 @@ export default function Footer() {
                         </p>
                         <div className="flex">
                             <p className="mr-1 text-gray-800">Phone:</p>
-                            <a
+                            <Link
                                 href="tel:123-456-7890"
                                 aria-label="Our phone"
                                 title="Our phone"
                                 className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
                             >
                                 123-456-7890
-                            </a>
+                            </Link>
                         </div>
                         <div className="flex">
                             <p className="mr-1 text-gray-800">Email:</p>
-                            <a
+                            <Link
                                 href="mailto:support@carx.com"
                                 aria-label="Our email"
                                 title="Our email"
                                 className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
                             >
                                 support@carx.com
-                            </a>
+                            </Link>
                         </div>
                         <div className="flex">
                             <p className="mr-1 text-gray-800">Showroom:</p>
-                            <a
+                            <Link
                                 href="https://www.google.com/maps"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -74,7 +75,7 @@ export default function Footer() {
                                 className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
                             >
                                 101 Auto Avenue, Los Angeles, CA
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div>
@@ -99,28 +100,28 @@ export default function Footer() {
                     </p>
                     <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
                         <li>
-                            <a
+                            <Link
                                 href="/faq"
                                 className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
                             >
                                 FAQ
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 href="/privacy-policy"
                                 className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
                             >
                                 Privacy Policy
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 href="/terms"
                                 className="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
                             >
                                 Terms & Conditions
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

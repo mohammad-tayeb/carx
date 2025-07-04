@@ -5,6 +5,7 @@ import NextAuthProvider from "@/Providers/NextAurhProvider";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,9 @@ export default function RootLayout({ children }) {
             reverseOrder={false}
           />
           <WhatsAppButton></WhatsAppButton>
-          <Navbar></Navbar>
+          <Suspense fallback={<div>Loading filters...</div>}>
+            <Navbar></Navbar>
+          </Suspense>
           {children}
           <Footer></Footer>
         </NextAuthProvider>

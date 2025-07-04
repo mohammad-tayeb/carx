@@ -20,7 +20,7 @@ export default function page() {
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">Need Car Repair?</h1>
             <p className="mb-5">
-              Book a car repair service with ease. Whether it's engine trouble, brake issues, or a routine check-up — we've got you covered!
+              Book a car repair service with ease. Whether it&apos;s engine trouble, brake issues, or a routine check-up — we&apos;ve got you covered!
             </p>
             <button className="btn bg-[#41bce8] text-white hover:bg-[#2aaccf] border-0"><a href="#bookrepair">Book a Service</a></button>
           </div>

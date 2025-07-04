@@ -19,7 +19,7 @@ export default function BuyRent({ data }) {
 
     useEffect(() => {
         if (session === null) {
-            toast("To place an order, please login first", {
+            toast("To place an order please login first", {
                 icon: "🔒",
             });
         }

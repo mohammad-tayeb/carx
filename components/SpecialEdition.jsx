@@ -46,7 +46,7 @@ export default function SpecialEdition() {
                                         Porsche 911
                                     </h1>
                                     <p className="mb-8 leading-relaxed">
-                                        The Porsche 911 blends timeless design with cutting-edge performance. Featuring a rear-engine layout, powerful turbocharged engine options, and precision handling, it's the ultimate expression of driving passion.
+                                        The Porsche 911 blends timeless design with cutting-edge performance. Featuring a rear-engine layout, powerful turbocharged engine options, and precision handling, it&apos;s the ultimate expression of driving passion.
                                     </p>
                                     <div className="flex justify-center">
                                         <Link href={"/cars?page=1&brand=porsche"} className="inline-flex text-white bg-[#41bce8] border-0 py-2 px-6 focus:outline-none hover:bg-[#41bbe8e8] rounded text-lg">

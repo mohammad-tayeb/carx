@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
@@ -9,15 +11,15 @@ export default function NotFound() {
           Page Not Found
         </h1>
         <p className="mt-2 text-gray-600 text-lg">
-          Sorry, the page you're looking for doesn't exist or has been moved.
+          Sorry, the page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
 
-        <a
+        <Link
           href="/"
           className="inline-block mt-6 px-6 py-3 bg-[#41bce8] text-white font-medium rounded-lg hover:bg-[#41bbe8ed] transition"
         >
           Back to Home
-        </a>
+        </Link>
       </div>
     </div>
   );

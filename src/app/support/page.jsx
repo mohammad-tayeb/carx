@@ -26,7 +26,7 @@ export default function page() {
                         <div className="max-w-md">
                             <h1 className="mb-5 text-5xl font-bold">Need Help with Your Car?</h1>
                             <p className="mb-5">
-                                We're here to support you with expert car repair services. Whether it’s a flat tire, engine trouble, or a quick inspection — our team is ready to help.
+                                We&apos;re here to support you with expert car repair services. Whether it&apos;s a flat tire, engine trouble, or a quick inspection — our team is ready to help.
                             </p>
                             <button className="btn bg-[#41bce8] text-white hover:bg-[#2aaccf] border-none"><a href="#support">Contact Support</a></button>
                         </div>

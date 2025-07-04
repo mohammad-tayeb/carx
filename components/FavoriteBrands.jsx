@@ -36,7 +36,7 @@ export default function FavoriteBrands() {
                                     </svg>
                                     <span className="relative">Explore</span>
                                 </span>{' '}
-                                the world’s top car brands
+                                the world&apos;s top car brands
                             </h2>
                             <p className="text-base text-gray-700 md:text-lg">
                                 Discover an exclusive collection of premium car brands including Mercedes-Benz, BMW, Audi, Ferrari, Lamborghini, Porsche, and more.

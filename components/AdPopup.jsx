@@ -45,7 +45,7 @@ export default function AdPopup() {
                     className="rounded-md w-full h-auto object-cover"
                 />
                 <div className="text-center mt-4 font-semibold text-white">
-                    🔥 Don’t miss our limited-time offer!
+                    🔥 Don&apos;t miss our limited-time offer!
                 </div>
             </div>
         </div>
